@@ -57,6 +57,10 @@ public class Kata {
                                      else
                                          return 0;
     }
+
+    public boolean isEven(int number) {
+        return number % 2 == 0;
+    }
 }
 
 

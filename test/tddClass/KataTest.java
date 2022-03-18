@@ -2,8 +2,7 @@ package tddClass;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class KataTest {
 
@@ -48,5 +47,12 @@ public class KataTest {
         Kata utmeApp = new Kata();
         int result = utmeApp.getQuantity(10);
         assertEquals(16000, result);
+    }
+
+    @Test
+    public void evenOddNumberTest(){
+        Kata evenAndOdd = new Kata();
+        boolean result = evenAndOdd.isEven(1000000);
+        assertTrue(result);
     }
 }
