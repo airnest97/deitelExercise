@@ -87,32 +87,42 @@ public class Kata {
     }
 
     public int factorsOf(int number) {
+//        using for loop
+
 //        int count = 0;
 //        for (int i = 1; i <= number; i++) {
 //            if (number % i == 0) count++;
 //        }
 //        return count;
 
+
+//        using for loop
+
         int i = 1;
-        int count = 1;
+        int count = 0;
         while (i <= number) {
-            i++;
-            if (number % i == 0)
+            if (number % i == 0) {
                 count++;
+            }
+                i++;
         }
         return count;
     }
 
     public boolean isAPrimeNumber(int number) {
+//       using while loop
+//
 //        int i = 1;
-//        int count = 1;
+//        int count = 0;
 //        while (i <= number) {
-//            i++;
 //            if (number % i == 0)
 //                count++;
 //        }
+//            i++;
 //        return count <= 2;
 
+
+//        using for loop
 
 //        int count = 0;
 //        for (int i = 1; i <= number; i++) {
@@ -120,6 +130,7 @@ public class Kata {
 //        }
 //        return count <= 2;
 
+//        calling a method
 
 //        if(factorsOf(number) <= 2)
 //            return true;
