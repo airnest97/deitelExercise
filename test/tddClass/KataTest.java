@@ -55,4 +55,32 @@ public class KataTest {
         boolean result = evenAndOdd.isEven(1000000);
         assertTrue(result);
     }
+
+    @Test
+    public void biggestNumberTest(){
+        Kata comparingInteger = new Kata();
+        int result = comparingInteger.calculateTheLargestNumber(10, 1239, 76, 989, 333);
+        assertEquals(1239, result);
+    }
+
+    @Test
+    public void largestNumberTest(){
+        Kata comparingNumber = new Kata();
+        int result = comparingNumber.calculateTheLargestInteger(1, 2, 3, 4, 55);
+        assertEquals(55, result);
+    }
+
+    @Test
+    public void theNumberOfFactorTest(){
+        Kata numberOfFactors = new Kata();
+        int result = numberOfFactors.factorsOf(7);
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void primeNumberTest(){
+        Kata primeNumberCheck = new Kata();
+        boolean result = primeNumberCheck.isAPrimeNumber(29);
+        assertTrue(result);
+    }
 }

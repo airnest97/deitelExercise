@@ -2,7 +2,7 @@ package task;
 
 import java.util.Scanner;
 
-public class Palindrome1 {
+public class palindrome1 {
     public static void main(String[] args) {
         Scanner collector = new Scanner(System.in);
 
