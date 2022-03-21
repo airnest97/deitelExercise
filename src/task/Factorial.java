@@ -9,11 +9,13 @@ public class Factorial {
         System.out.println("Enter a number: ");
         int number = input.nextInt();
 
-        int fact = 1;
+        int factorial = 1;
 
         for (int i = 1; i <= number; i++) {
-            fact = fact * i;
+            factorial = factorial * i;
+            System.out.print(factorial +" ");
         }
-        System.out.print(fact);
+        System.out.println();
+        System.out.println("The factorial of " +number +" is " +factorial);
     }
 }
