@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class StudentGrades {
     public static void main(String[] args) {
+
         int numberOfGradeA = 0;
         int numberOfGradeB = 0;
         int numberOfGradeC = 0;
         int numberOfGradeD = 0;
 
         Scanner input = new Scanner(System.in);
-//        String name = " ";
 
         for (int i = 0; i < 5; i++) {
 
@@ -19,7 +19,6 @@ public class StudentGrades {
 
             System.out.println("Enter student grade in letter:");
             String grade = input.nextLine();
-
 
             switch (grade.toUpperCase()) {
                 case "A" -> numberOfGradeA++;

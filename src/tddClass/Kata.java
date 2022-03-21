@@ -138,4 +138,12 @@ public class Kata {
 
         return factorsOf(number) <= 2;
     }
+
+    public int getFactorialOf(int number) {
+        int factorial = 1;
+        for (int i = 1; i <= number ; i++) {
+            factorial = factorial * i;
+        }
+        return factorial;
+    }
 }

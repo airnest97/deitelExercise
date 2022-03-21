@@ -21,7 +21,6 @@ public class BarChartPrinting {
             System.out.println("enter a number between 1 to 30");
             int num4 = input.nextInt();
 
-
         iterateThrough(num);
         iterateThrough(num1);
         iterateThrough(num2);
@@ -36,6 +35,5 @@ public class BarChartPrinting {
             System.out.print("* ");
         }
         System.out.println();
-
     }
 }

@@ -83,4 +83,11 @@ public class KataTest {
         boolean result = primeNumberCheck.isAPrimeNumber(29);
         assertTrue(result);
     }
+
+    @Test
+    public void factorialTest(){
+        Kata factorial = new Kata();
+        int result = factorial.getFactorialOf(5);
+        assertEquals(120, result);
+    }
 }
