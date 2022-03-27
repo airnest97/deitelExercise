@@ -30,20 +30,9 @@ public class AirConditionerTest {
     @Test
     public void increaseTemperatureTest(){
         item.setTemperature(16);
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
-        item.increaseTemperature();
+        for (int i = 0; i < 14; i++) {
+            item.increaseTemperature();
+        }
         assertEquals(30, item.getTemperature());
     }
 

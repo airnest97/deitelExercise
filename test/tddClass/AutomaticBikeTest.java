@@ -113,12 +113,9 @@ public class AutomaticBikeTest {
         bike.decreaseSpeed();
         assertEquals(19, bike.getSpeed());
 
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
+        for (int i = 0; i < 6; i++) {
+            bike.decreaseSpeed();
+        }
         assertEquals(13, bike.getSpeed());
     }
 
@@ -131,11 +128,9 @@ public class AutomaticBikeTest {
         }
         assertEquals(21, bike.getSpeed());
 
-        bike.increaseSpeed();
-        bike.increaseSpeed();
-        bike.increaseSpeed();
-        bike.increaseSpeed();
-        bike.increaseSpeed();
+        for (int j = 0; j < 5; j++) {
+            bike.increaseSpeed();
+        }
         assertEquals(31, bike.getSpeed());
 
         bike.increaseSpeed();
@@ -144,11 +139,9 @@ public class AutomaticBikeTest {
         bike.increaseSpeed();
         assertEquals(43, bike.getSpeed());
 
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
+        for (int j = 0; j < 5; j++) {
+            bike.decreaseSpeed();
+        }
         assertEquals(28, bike.getSpeed());
 
         bike.decreaseSpeed();
@@ -170,11 +163,9 @@ public class AutomaticBikeTest {
         }
         assertEquals(21, bike.getSpeed());
 
-        bike.increaseSpeed();
-        bike.increaseSpeed();
-        bike.increaseSpeed();
-        bike.increaseSpeed();
-        bike.increaseSpeed();
+        for (int j = 0; j < 5; j++) {
+            bike.increaseSpeed();
+        }
         assertEquals(31, bike.getSpeed());
 
         bike.increaseSpeed();
@@ -197,11 +188,9 @@ public class AutomaticBikeTest {
         bike.decreaseSpeed();
         assertEquals(30, bike.getSpeed());
 
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
+        for (int i = 0; i < 5; i++) {
+            bike.decreaseSpeed();
+        }
         assertEquals(20, bike.getSpeed());
 
         bike.decreaseSpeed();
@@ -244,11 +233,9 @@ public class AutomaticBikeTest {
         bike.decreaseSpeed();
         assertEquals(30, bike.getSpeed());
 
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
-        bike.decreaseSpeed();
+        for (int j = 0; j < 5; j++) {
+            bike.decreaseSpeed();
+        }
         assertEquals(20, bike.getSpeed());
 
         for(int i = 0; i < 14; i++){

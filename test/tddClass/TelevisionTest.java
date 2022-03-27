@@ -83,14 +83,9 @@ public class TelevisionTest {
     public void TvModeTest(){
         samsung.powerStatus();
         assertTrue(samsung.isOn());
-        samsung.inputMode();
-        samsung.inputMode();
-        samsung.inputMode();
-        samsung.inputMode();
-        samsung.inputMode();
-        samsung.inputMode();
-        samsung.inputMode();
-        samsung.inputMode();
+        for (int i = 0; i < 8; i++) {
+            samsung.inputMode();
+        }
         assertEquals("AV2", samsung.getInputMode());
     }
 
@@ -98,14 +93,9 @@ public class TelevisionTest {
     public void muteButtonTest(){
         samsung.powerStatus();
         assertTrue(samsung.isOn());
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
+        for (int i = 0; i < 8; i++) {
+            samsung.volumeUp();
+        }
         samsung.mute();
         assertTrue(samsung.isMute());
         assertEquals(0, samsung.getVolume());
@@ -115,12 +105,10 @@ public class TelevisionTest {
     public void unMuteButtonTest(){
         samsung.powerStatus();
         assertTrue(samsung.isOn());
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.mute();
+      for (int i = 0; i < 5; i++) {
+          samsung.volumeUp();
+      }
+      samsung.mute();
         samsung.mute();
         assertFalse(samsung.isMute());
         assertEquals(5, samsung.getVolume());
@@ -130,10 +118,9 @@ public class TelevisionTest {
     public void volumeUpUnmuteTest(){
         samsung.powerStatus();
         assertTrue(samsung.isOn());
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
+        for (int i = 0; i < 4; i++) {
+            samsung.volumeUp();
+        }
         samsung.mute();
         assertTrue(samsung.isMute());
         samsung.volumeUp();
@@ -145,12 +132,9 @@ public class TelevisionTest {
     public void volumeDownUnmuteTest(){
         samsung.powerStatus();
         assertTrue(samsung.isOn());
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
-        samsung.volumeUp();
+        for (int i = 0; i < 6; i++) {
+            samsung.volumeUp();
+        }
         samsung.mute();
         assertTrue(samsung.isMute());
         samsung.volumeDown();
