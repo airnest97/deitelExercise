@@ -2,7 +2,7 @@ package task;
 
 import java.util.Scanner;
 
-public class bitFlipper{
+public class BitFlipper {
     public static void main(String[] args) {
         Scanner collector = new Scanner(System.in);
 
