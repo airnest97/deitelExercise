@@ -37,7 +37,6 @@ public class KataTest {
     @Test
     public void palindromeTest(){
         Kata kata = new Kata();
-        //assertTrue(kata.isPalindrome(12345));
         boolean result = kata.isPalindrome(112211);
         assertTrue(result);
     }
@@ -89,5 +88,33 @@ public class KataTest {
         Kata factorial = new Kata();
         int result = factorial.getFactorialOf(5);
         assertEquals(120, result);
+    }
+
+    @Test
+    public void maximumNumberInArrayTest(){
+        Kata kata = new Kata();
+        int[] scores = {34, 23, 14, 45, 23};
+        assertEquals(45, kata.findMaximumFrom(scores));
+    }
+
+    @Test
+    public void minimumNumberInArray(){
+        Kata kata = new Kata();
+        int[] scores = {34, 23, 14, 45, 23};
+        assertEquals(14, kata.findMinimumFrom(scores));
+    }
+
+    @Test
+    public void averageOfNumberInArray(){
+        Kata kata = new Kata();
+        int[] scores = {34, 23, 14, 45, 23};
+        assertEquals(27.8, kata.findAverageFrom(scores));
+    }
+
+    @Test
+    public void sumOfNumberInArray(){
+        Kata kata = new Kata();
+        int[] scores = {34, 23, 14, 45, 23};
+        assertEquals(139, kata.findSumFrom(scores));
     }
 }

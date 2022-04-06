@@ -111,4 +111,39 @@ public class Kata {
         }
         return factorial;
     }
+
+    public int findMaximumFrom(int[] scores) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < scores.length; i++) {
+            if(scores[i] > max)
+                max = scores[i];
+        }
+        return max;
+    }
+
+    public int findMinimumFrom(int[] scores) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < scores.length; i++) {
+            if(min > scores[i])
+                min = scores[i];
+        }
+        return min;
+    }
+
+    public double findAverageFrom(int[] scores) {
+        int sum = 0; double average = 0;
+        for (int i = 0; i < scores.length; i++) {
+            sum = sum + scores[i];
+            average = (double)sum / scores.length;
+        }
+        return average;
+    }
+
+    public int findSumFrom(int[] scores) {
+        int sum = 0;
+        for (int i = 0; i < scores.length; i++) {
+            sum = sum + scores[i];
+        }
+        return sum;
+    }
 }
