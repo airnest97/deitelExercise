@@ -10,13 +10,12 @@ public class DiceGame {
 
         sum = die1 + die2;
         if (sum == 7 || sum == 11)
-            status = "You Win";
+            status = "Yay!!!! You Win";
         else if (sum == 2 || sum == 3 || sum == 12)
-            status = "You Lose";
+            status = "Oh crap!! You Lose";
         else if (sum == 4 || sum == 5 || sum == 6 || sum == 8 || sum == 9 || sum == 10)
-            status = "Please try again";
+            status = "You get another turn, Please try again";
         point = sum;
-        initialPointWins(die1, die2);
     }
 
     public String getStatus() {
@@ -32,11 +31,11 @@ public class DiceGame {
 
             sum = die1 + die2;
             if(sum == 7){
-                status = "You Lose";
+                status = "Oh crap!! You Lose";
                 break;
             }
             else if (sum == point){
-                status = "You Win";
+                status = "Yay!!!! You Win";
                 break;
             }
         }

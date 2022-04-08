@@ -16,44 +16,44 @@ public class DiceGameCrapTest {
     @Test
     public void sevenIsAWinTest(){
         game.rollDice(2, 5);
-        assertEquals("You Win", game.getStatus());
+        assertEquals("Yay!!!! You Win", game.getStatus());
     }
 
     @Test
     public void elevenIsAWinTest(){
         game.rollDice(5,6);
-        assertEquals("You Win", game.getStatus());
+        assertEquals("Yay!!!! You Win", game.getStatus());
     }
 
     @Test
     public void twoIsALoseTest(){
         game.rollDice(1, 1);
-        assertEquals("You Lose", game.getStatus());
+        assertEquals("Oh crap!! You Lose", game.getStatus());
     }
 
     @Test
     public void threeIsALoseTest(){
         game.rollDice(2, 1);
-        assertEquals("You Lose", game.getStatus());
+        assertEquals("Oh crap!! You Lose", game.getStatus());
     }
 
     @Test
     public void twelveIaALoseTest(){
         game.rollDice(6, 6);
-        assertEquals("You Lose", game.getStatus());
+        assertEquals("Oh crap!! You Lose", game.getStatus());
     }
 
     @Test
     public void continuousRoll(){
         game.rollDice(2, 2);
-        assertEquals("Please try again", game.getStatus());
+        assertEquals("You get another turn, Please try again", game.getStatus());
     }
 
     @Test
     public void initialPointWinsTest(){
         game.rollDice(2, 2);
         game.initialPointWins(2, 2);
-        assertEquals("You Win", game.getStatus());
+        assertEquals("Yay!!!! You Win", game.getStatus());
     }
 
     @Test
@@ -61,6 +61,6 @@ public class DiceGameCrapTest {
         game.rollDice(2, 2);
         assertEquals(4, game.getPoint());
         game.rollDice(4, 3);
-        assertEquals("You Win", game.getStatus());
+        assertEquals("Yay!!!! You Win", game.getStatus());
     }
 }
