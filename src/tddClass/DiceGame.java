@@ -16,6 +16,7 @@ public class DiceGame {
         else if (sum == 4 || sum == 5 || sum == 6 || sum == 8 || sum == 9 || sum == 10)
             status = "You get another turn, Please try again";
         point = sum;
+        initialPointWins(5, 2);
     }
 
     public String getStatus() {

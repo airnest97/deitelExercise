@@ -57,10 +57,9 @@ public class DiceGameCrapTest {
     }
 
     @Test
-    public void sevenAfterMultipleRollsIsAWin(){
+    public void sevenAfterMultipleRollsIsALose(){
         game.rollDice(2, 2);
-        assertEquals(4, game.getPoint());
         game.rollDice(4, 3);
-        assertEquals("Yay!!!! You Win", game.getStatus());
+        assertEquals("Oh crap!! You Lose", game.getStatus());
     }
 }
