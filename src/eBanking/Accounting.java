@@ -23,7 +23,6 @@ public class Accounting {
     }
 
     public void deposit(int amount) {
-
         balance += amount;
     }
 
@@ -38,4 +37,14 @@ public class Accounting {
             balance -= amount;
         }
     }
+
+    @Override
+    public  String toString(){
+        return String.format("""
+                Account Name:   %s
+                Account Number: %s
+                Balance:        %d
+                """, fullName, ACCOUNT_NUMBER, balance);
+    }
 }
+

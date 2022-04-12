@@ -18,8 +18,7 @@ public class MultiplicationTable {
         for (int i = 1; i <= 12; i++) {
             for (int a = 1; a <= 12; a++) {
                 int multiplication = a * i;
-                System.out.print(i +" X " + a +" = " +multiplication + "   ");
-                System.out.println();
+                System.out.printf("%2d X %2d = %3d  ", a, i, multiplication);
             }
             System.out.println();
         }
