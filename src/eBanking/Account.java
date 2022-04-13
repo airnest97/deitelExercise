@@ -1,13 +1,13 @@
 package eBanking;
 
-public class Accounting {
+public class Account {
 
     private final String ACCOUNT_NUMBER;
     private final String fullName;
     private int balance;
     private String pin;
 
-    public Accounting(String accountNumber, String lastName, String firstName, String pin) {
+    public Account(String accountNumber, String lastName, String firstName, String pin) {
     ACCOUNT_NUMBER = accountNumber;
     this.fullName = lastName + " " + firstName;
     this.pin = pin;

@@ -5,8 +5,6 @@ public class TheTwelveDaysOfChristmasSong {
     public static void main(String[] args) {
 
 
-//        int day = 1;
-//        while( day<=12) {
         for (int day = 1; day <= 12; day++) {
             switch (day) {
                 case 1 -> System.out.println("On the first day of Christmas my true love sent to me");
@@ -48,9 +46,6 @@ public class TheTwelveDaysOfChristmasSong {
                     System.out.println("Two turtle doves ");
                 case 1:
                     System.out.println("A partridge in a pear tree ");
-
-//                    day++;
-//            }
             }
             System.out.println();
         }

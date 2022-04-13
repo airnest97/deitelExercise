@@ -39,7 +39,7 @@ public class BankTest {
         gtBank.createAccountFor("MyGuy", "Okoro", "1234");
         assertEquals(4, gtBank.getNumberOfCustomers());
 
-        Accounting account = gtBank.findAccount(4);
+        Account account = gtBank.findAccount(4);
         assertEquals("MyGuy Okoro", account.getFullName());
         assertEquals("4", account.getAccountNumber());
     }
@@ -50,7 +50,7 @@ public class BankTest {
         gtBank.deposit(1200, "1");
         gtBank.deposit(1800, "1");
 
-        Accounting account = gtBank.findAccount(1);
+        Account account = gtBank.findAccount(1);
         assertEquals(3000, account.getBalance("1234"));
     }
 
@@ -60,7 +60,7 @@ public class BankTest {
         gtBank.deposit(1200,"1");
         gtBank.withdraw(1000, "1", "1234");
 
-        Accounting account = gtBank.findAccount(1);
+        Account account = gtBank.findAccount(1);
         assertEquals(200, account.getBalance("1234"));
 
     }
@@ -72,7 +72,7 @@ public class BankTest {
 
         gtBank.deposit(12_000, "1");
 
-        Accounting account = gtBank.findAccount(1);
+        Account account = gtBank.findAccount(1);
         assertEquals(12_000, account.getBalance("1221"));
 
         gtBank.transfer(200, "1", "2", "1221");

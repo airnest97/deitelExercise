@@ -44,7 +44,7 @@ public class Atm {
 
         System.out.println("Your pin");
         String pin = scanner.next();
-        Accounting account = zuBank.findAccount(Integer.parseInt(accountNumber));
+        Account account = zuBank.findAccount(Integer.parseInt(accountNumber));
         System.out.println("Your balance is: " + account.getBalance(pin));
         scanner.next();
         runApp();
@@ -66,7 +66,7 @@ public class Atm {
         int amount = scanner.nextInt();
 
         zuBank.transfer(amount, senderAccountNumber, receiverAccountNumber, pin);
-        Accounting fromAccount = zuBank.findAccount(Integer.parseInt(senderAccountNumber));
+        Account fromAccount = zuBank.findAccount(Integer.parseInt(senderAccountNumber));
 
         System.out.println("Your new balance is " + fromAccount.getBalance(pin));
         scanner.next();
@@ -89,7 +89,7 @@ public class Atm {
         zuBank.withdraw(amount, accountNumber, pin);
 
         System.out.println("successful!!!");
-        Accounting account = zuBank.findAccount(Integer.parseInt(accountNumber));
+        Account account = zuBank.findAccount(Integer.parseInt(accountNumber));
         System.out.println();
         System.out.println("New balance is " + account.getBalance(pin));
         System.out.println();
@@ -102,7 +102,7 @@ public class Atm {
         System.out.println("Which account: ");
         String accountNumber = scanner.nextLine();
 
-        Accounting account = zuBank.findAccount(Integer.parseInt(accountNumber));
+        Account account = zuBank.findAccount(Integer.parseInt(accountNumber));
         System.out.println("The account name is " + account.getFullName());
 
         System.out.println("How much: ");
@@ -131,11 +131,10 @@ public class Atm {
         System.out.println();
         System.out.println();
 
-        Accounting savedAccount = zuBank.createAccountFor(firstName, lastName, pin);
+        Account savedAccount = zuBank.createAccountFor(firstName, lastName, pin);
         System.out.println(savedAccount);
         System.out.println();
         System.out.println();
-//        scanner.next();
         runApp();
     }
 }

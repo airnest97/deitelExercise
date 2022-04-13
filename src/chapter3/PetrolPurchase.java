@@ -21,10 +21,12 @@ public class PetrolPurchase {
     }
 
     public void setLocation(String location){
-        this.location = location;}
+        this.location = location;
+    }
 
     public String getLocation(){
-        return location;}
+        return location;
+    }
 
     public void setTypeOfPetrol(String typeOfPetrol){
         this.typeOfPetrol = typeOfPetrol;
@@ -57,5 +59,5 @@ public class PetrolPurchase {
         return (quantity * pricePerLiter) - percentageDiscount;
     }
 
-    }
+}
 
