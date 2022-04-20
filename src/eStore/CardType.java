@@ -1,5 +1,5 @@
 package eStore;
 
 public enum CardType {
-    MASTERCARD, VISACARD, VERVE, AMERICAEXPRESS;
+    MASTERCARD, VISA_CARD, VERVE, AMERICA_EXPRESS;
 }

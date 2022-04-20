@@ -2,7 +2,7 @@ package task;
 
 public class sumOf {
     public static void main(String[] args) {
-        System.out.println(sumDigits(10));
+        System.out.println(sumDigits(999));
     }
 
     private static int sumDigits(int number){
