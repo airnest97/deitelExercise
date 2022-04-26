@@ -12,7 +12,7 @@ public class RandomPassword {
 
         char password = ' ';
         for (int i = 0; i < 13; i++) {
-            password = array[random.nextInt(67)];
+            password = array[random.nextInt(62)];
             System.out.print(password);
         }
     }

@@ -29,17 +29,17 @@ public class Array {
     }
 
     private static int sumOfArray(int sum, int[] ernest) {
-        for (int i = 0; i < ernest.length; i++) {
-            sum += ernest[i];
+        for (int j : ernest) {
+            sum += j;
         }
         System.out.println("The sum of the array is: " + sum);
         return sum;
     }
 
     private static void largestNumberInArray(int largest, int[] ernest) {
-        for (int i = 0; i < ernest.length; i++) {
-            if(ernest[i] > largest)
-                largest = ernest[i];
+        for (int j : ernest) {
+            if (j > largest)
+                largest = j;
         }
         System.out.println("The largest number in the array is: " + largest);
     }
@@ -48,8 +48,8 @@ public class Array {
         for (int i = 0; i < ernest.length; i++) {
             ernest[i] = 1 + rand.nextInt(11);
         }
-        for (int i = 0; i < ernest.length; i++) {
-            System.out.print(ernest[i] + " ");
+        for (int j : ernest) {
+            System.out.print(j + " ");
         }
         System.out.println();
     }
