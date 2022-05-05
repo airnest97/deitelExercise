@@ -7,12 +7,10 @@ public class Entry {
 
     private final String title;
     private final String body;
-    private final String date;
+    private final LocalDateTime date = LocalDateTime.now();
 
 
     public Entry(String title, String body) {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("E, dd:MM:yyyy, hh:mm:ss a");
-        date = dateTimeFormatter.format(LocalDateTime.now());
         this.title = title;
         this.body = body;
     }
@@ -22,10 +20,24 @@ public class Entry {
     }
 
     public String getDate() {
-        return date;
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("E, dd:MM:yyyy, hh:mm:ss a");
+        return dateTimeFormatter.format(date);
     }
 
     public String getBody() {
         return body;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("""
+                Date:           %s
+                
+                Title:          %s
+                                
+                Body:           %s
+                
+               ===========================================================
+                """, getDate(), title, body);
     }
 }

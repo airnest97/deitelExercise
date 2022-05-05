@@ -26,7 +26,7 @@ public class DiaryTest {
 
     @Test
     public void diaryCanHaveAPasswordTest(){
-        assertEquals("1234", diary.getPassword());
+        assertTrue(diary.isPasswordValid("1234"));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class DiaryTest {
 
         String findEntry = diary.findEntryByTitle("Loki");
 
-        assertEquals("Sun, 01:05:2022, 04:26:22 PM | Loki | Hellboy", findEntry);
+        assertEquals("Sun, 01:05:2022, 04:26:22 PM || Loki || Hellboy", findEntry);
     }
 
     @Test
@@ -113,7 +113,7 @@ public class DiaryTest {
         assertEquals(3, diary.getNumberOfEntries());
 
         String findEntryById = diary.findEntryById(3);
-        assertEquals("Mon, 02:05:2022, 01:36:45 PM | Loki | Hellboy", findEntryById);
+        assertEquals("Mon, 02:05:2022, 01:36:45 PM || Loki || Hellboy", findEntryById);
     }
 
     @Test

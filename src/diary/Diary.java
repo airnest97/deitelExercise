@@ -31,10 +31,6 @@ public class Diary {
         return diaryName;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public void addEntry(Entry entry) {
         entries.add(entry);
         numberOfEntries += 1;
@@ -47,7 +43,7 @@ public class Diary {
     public String findEntryByTitle(String entryTitle) {
         for (Entry entry : entries) {
             if (Objects.equals(entry.getTitle(), entryTitle)) {
-                return entry.getDate() + " | " + entry.getTitle() + " | " + entry.getBody();
+                return entry.toString();
             }
         }
         return "Not found";
@@ -56,7 +52,7 @@ public class Diary {
     public boolean removeEntry(String entryTitle, String password) {
         for (int i = 0; i < entries.size(); i++) {
             Entry entry = entries.get(i);
-            if (Objects.equals(entry.getTitle(), entryTitle) && Objects.equals(password, getPassword())) {
+            if (Objects.equals(entry.getTitle(), entryTitle) && (isPasswordValid(password))) {
                 entries.remove(entry);
                 numberOfEntries -= 1;
                 return true;
@@ -70,7 +66,7 @@ public class Diary {
         for (int i = 0; i < entries.size(); i++) {
             Entry entry = entries.get(i);
             if (Objects.equals(index, i)) {
-                return entry.getDate() + " | " + entry.getTitle() + " | " + entry.getBody();
+                return entry.toString();
             }
         }
         return "Entry " + entryId + " not found";
@@ -80,7 +76,7 @@ public class Diary {
         int index = entryId - 1;
         for (int i = 0; i < entries.size(); i++) {
             Entry entry = entries.get(i);
-            if (Objects.equals(i, index) && Objects.equals(password, getPassword())) {
+            if (Objects.equals(i, index) &&  (isPasswordValid(password))) {
                 entries.remove(entry);
                 numberOfEntries -= 1;
                 return true;
@@ -92,14 +88,14 @@ public class Diary {
 
     public void viewAllEntry() {
         for (Entry entry : entries) {
-            System.out.println(entry.getDate() + " | " + entry.getTitle() + " | " + entry.getBody());
+            System.out.println(entry);
         }
     }
 
     public boolean editEntryByTitle(String entryTitle, String password, String newTitle, String newBody) {
         for (int i = 0; i < entries.size(); i++) {
             Entry entry = entries.get(i);
-            if (Objects.equals(entryTitle, entry.getTitle()) && Objects.equals(password, getPassword())) {
+            if (Objects.equals(entryTitle, entry.getTitle()) &&  (isPasswordValid(password))) {
                 entries.set(i, new Entry(newTitle, newBody));
                 return true;
             }
@@ -110,11 +106,19 @@ public class Diary {
     public boolean editEntryById(int entryId, String password, String newTitle, String newBody) {
         int index = entryId - 1;
         for (int i = 0; i < entries.size(); i++) {
-            if (Objects.equals(i, index) && Objects.equals(password, getPassword())) {
+            if (Objects.equals(i, index) &&  (isPasswordValid(password))) {
                 entries.set(i, new Entry(newTitle, newBody));
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean isUsernameValid(String username){
+        return Objects.equals(username, getDiaryName());
+    }
+
+    public boolean isPasswordValid(String password){
+        return Objects.equals(password, this.password);
     }
 }

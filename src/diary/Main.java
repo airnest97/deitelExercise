@@ -21,28 +21,22 @@ public class Main {
 
 
 
-    public static void signUp(){
+    public static void signUp() {
         String space = " ";
 
         System.out.println("Create a username: ");
         String newUserName = collector.nextLine();
 
-        if (newUserName.contains(space)){
-            System.out.println("Invalid username");
-        }
-        else {
-            diary.setDiaryName(newUserName);
-        }
-
         System.out.println("Create a password");
         String newPassword = collector.nextLine();
 
-        if (newPassword.contains(space)){
-            System.out.println("Invalid password");
-        }
-        else{
+        if (newUserName.contains(space) || (newPassword.contains(space))) {
+            System.out.println("Invalid username or password");
+            signUp();
+        } else {
+            diary.setDiaryName(newUserName);
             diary.setPassword(newPassword);
-            System.out.println("Congratulations " + newUserName + " You are registered successfully");
+            System.out.println("Congratulations " + newUserName.toUpperCase() + " You are registered successfully");
         }
     }
     public static  void  signIn(){
@@ -52,8 +46,8 @@ public class Main {
         System.out.println("Enter your password to log in: ");
         String password = collector.nextLine();
 
-        if (Objects.equals(username, diary.getDiaryName()) && Objects.equals(password, diary.getPassword())){
-            System.out.println("Welcome " + username + ", You have been logged in successfully");
+        if ((diary.isUsernameValid(username)) && (diary.isPasswordValid(password))){
+            System.out.println("Welcome " + username.toUpperCase() + ", You have been logged in successfully");
             runApp();
         }
         else {
@@ -82,7 +76,7 @@ public class Main {
         System.out.println("Confirm your new password: ");
         String changedPassword = collector.nextLine();
 
-        if (!Objects.equals(currentPassword, oldPassword) && currentPassword.contains(space) || oldPassword.contains(space) || newPassword.contains(space) || changedPassword.contains(space)){
+        if (!Objects.equals(currentPassword, oldPassword) || (!Objects.equals(newPassword, changedPassword)) || currentPassword.contains(space) || !diary.isPasswordValid(currentPassword) || !diary.isPasswordValid(oldPassword) || oldPassword.contains(space) || newPassword.contains(space) || changedPassword.contains(space)){
             System.out.println("""
                     
                     Your current password is incorrect
@@ -90,6 +84,7 @@ public class Main {
                     Please enter your old password to change password
                     
                     """);
+            changePassword();
         }
         else {
             diary.setPassword(changedPassword);
@@ -111,7 +106,7 @@ public class Main {
         System.out.println("Confirm your new username: ");
         String changedUsername = collector.nextLine();
 
-        if (!Objects.equals(currentUsername, oldUsername) && currentUsername.contains(space) || oldUsername.contains(space) || newUsername.contains(space) || changedUsername.contains(space)){
+        if (!Objects.equals(currentUsername, oldUsername) || (!Objects.equals(newUsername, changedUsername)) || currentUsername.contains(space) || !diary.isUsernameValid(currentUsername) || !diary.isUsernameValid(oldUsername) || oldUsername.contains(space) || newUsername.contains(space) || changedUsername.contains(space)){
             System.out.println("""
                     
                     Your current username is incorrect
@@ -119,6 +114,7 @@ public class Main {
                     Please enter your old username to change username
                     
                     """);
+            changeUserName();
         }
         else {
             diary.setDiaryName(changedUsername);
@@ -226,7 +222,7 @@ public class Main {
             System.out.println("Enter your password to unlock and use diary: ");
             String password = collector.nextLine();
 
-            if (Objects.equals(password, diary.getPassword())) {
+            if (diary.isPasswordValid(password)) {
                 System.out.println("Diary is now unlocked");
             } else {
                 System.out.println("Wrong password, please try again");

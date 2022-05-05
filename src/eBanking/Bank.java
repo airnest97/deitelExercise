@@ -31,9 +31,6 @@ public class Bank {
     }
 
     public Account findAccount(int accountNumber) {
-//        int indexOfAccount = accountNumber - 1;
-//        Accounting theAccount = accounts[indexOfAccount];
-//        return theAccount;
         return accounts[accountNumber - 1];
     }
 
