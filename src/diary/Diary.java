@@ -23,7 +23,7 @@ public class Diary {
         this.diaryName = userName;
     }
 
-    public void setPassword(String newPassword) {
+    public void updatePassword(String newPassword) {
         this.password = newPassword;
     }
 

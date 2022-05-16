@@ -1,8 +1,7 @@
 package chapterNineProject;
 
+import classwork.chapterNineProject.Vertebrate;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class AnimalTest {
 

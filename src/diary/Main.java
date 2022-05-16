@@ -35,7 +35,7 @@ public class Main {
             signUp();
         } else {
             diary.setDiaryName(newUserName);
-            diary.setPassword(newPassword);
+            diary.updatePassword(newPassword);
             System.out.println("Congratulations " + newUserName.toUpperCase() + " You are registered successfully");
         }
     }
@@ -87,7 +87,7 @@ public class Main {
             changePassword();
         }
         else {
-            diary.setPassword(changedPassword);
+            diary.updatePassword(changedPassword);
             System.out.println("Password changed successfully");
         }
     }
