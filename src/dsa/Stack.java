@@ -3,12 +3,11 @@ package dsa;
 public class Stack {
 
     private int numberOfElements;
-    private int[] elements = new int[5];
+    private final int[] elements = new int[5];
 
 
     public boolean isEmpty() {
-        if(numberOfElements == 0) return true;
-        else return false;
+        return numberOfElements == 0;
     }
 
     public void push(int element) {

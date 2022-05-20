@@ -5,7 +5,6 @@ public class ArrayList implements List {
     private int length;
     private String[] db;
 
-
     @Override
     public void add(String item) {
         if (counter == 0) {
@@ -20,7 +19,6 @@ public class ArrayList implements List {
             db[counter] = item;
             counter++;
         }
-
     }
 
     @Override
@@ -35,8 +33,6 @@ public class ArrayList implements List {
                 counter++;
             }
         }
-
-
     }
 
     @Override
@@ -60,7 +56,6 @@ public class ArrayList implements List {
               implementRemoval(i);
             }
         }
-
     }
 
     @Override
@@ -86,7 +81,6 @@ public class ArrayList implements List {
         for (int i = index; i < length - 1; i++) {
             db[i + 1] = db1[i];
         }
-
     }
 
     public void implementRemoval(int i) {

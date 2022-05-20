@@ -7,5 +7,4 @@ public interface List {
     void remove(String item);
     void remove(int index);
     int size();
-
 }

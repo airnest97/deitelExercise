@@ -37,7 +37,6 @@ public class ArrayListTest {
         list.add("Fish as meal");
         list.remove("Boxer for boyfriend");
         assertEquals(1,list.size());
-
     }
 
     @Test
@@ -74,6 +73,7 @@ public class ArrayListTest {
 
         assertEquals(8,list.size());
     }
+
     @Test
     public void canExpandArraySize_And_RemoveItemsTest(){
         List list = new ArrayList();
