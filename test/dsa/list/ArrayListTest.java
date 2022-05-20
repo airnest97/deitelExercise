@@ -1,4 +1,4 @@
-package dsa.linkedList;
+package dsa.list;
 
 import org.junit.jupiter.api.Test;
 

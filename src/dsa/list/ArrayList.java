@@ -1,4 +1,4 @@
-package dsa.linkedList;
+package dsa.list;
 
 public class ArrayList implements List {
     private int counter;
@@ -63,7 +63,7 @@ public class ArrayList implements List {
         return counter;
     }
 
-    public void increaseArrayLength() {
+    private void increaseArrayLength() {
         length = length * 2;
         String[] db2 = new String[length];
         for (int i = 0; i < counter; i++) {
@@ -72,7 +72,7 @@ public class ArrayList implements List {
         db = db2;
     }
 
-    public void implementAdd(int index, String item) {
+    private void implementAdd(int index, String item) {
         String[] db1 = new String[length];
         for (int i = 0; i < length; i++) {
             db1[i] = db[i];
@@ -83,7 +83,7 @@ public class ArrayList implements List {
         }
     }
 
-    public void implementRemoval(int i) {
+    private void implementRemoval(int i) {
         db[i] = null;
         counter--;
         for (int j = i; j < length - 1; j++) {

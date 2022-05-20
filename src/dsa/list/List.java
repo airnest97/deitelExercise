@@ -1,4 +1,4 @@
-package dsa.linkedList;
+package dsa.list;
 
 public interface List {
     void add(String item);
