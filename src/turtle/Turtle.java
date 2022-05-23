@@ -6,7 +6,7 @@ public class Turtle {
     private Pen pen = new Pen();
     private Direction currentDirection = EAST;
     private Position currentPosition = new Position(0, 0);
-    private SketchPad sketchPad = new SketchPad();
+//    private Sketchpad sketchpad = new Sketchpad();
 
 
     public boolean isPenDown() {
@@ -75,4 +75,15 @@ public class Turtle {
     public Position getCurrentPosition() {
         return currentPosition;
     }
+
+//    public void write(int row, int column, int noOfSteps) {
+//        new Position(row, column);
+//        move(noOfSteps);
+//        for (int i = 0; i < noOfSteps; i++) {
+//            sketchpad.getFloor() =
+//        }
+//    }
+
+//    public String printSketchPad() {
+//    }
 }

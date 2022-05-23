@@ -32,7 +32,7 @@ public class BarChartPrinting {
     private static void iterateThrough(int number) {
         for (int i = 0; i < number; i++) {
             if(number <= 30)
-            System.out.print("* ");
+                System.out.print("* ");
         }
         System.out.println();
     }

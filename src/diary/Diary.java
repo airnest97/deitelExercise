@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Diary {
     private String diaryName;
-    private ArrayList<Entry> entries;
+    private final ArrayList<Entry> entries;
     private String password;
     private int numberOfEntries;
 

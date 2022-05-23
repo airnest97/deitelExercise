@@ -198,4 +198,10 @@ public class TurtleTest {
         assertSame(EAST, turtle.getCurrentDirection());
         assertEquals(new Position(4, 4), turtle.getCurrentPosition());
     }
+
+//    @Test
+//    void turtleCanWriteTest(){
+//        turtle.write(0, 1, 1);
+//        assertEquals("#", turtle.printSketchPad());
+//    }
 }
