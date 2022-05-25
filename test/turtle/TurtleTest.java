@@ -9,10 +9,12 @@ import static turtle.Direction.*;
 
 public class TurtleTest {
     private Turtle turtle;
+    private SketchPad sketchPad;
 
     @BeforeEach
     public void setUp() {
         turtle = new Turtle();
+        sketchPad = new SketchPad(5, 5);
     }
 
     @Test
@@ -107,101 +109,111 @@ public class TurtleTest {
 
     @Test
     void turtleCanMoveForwardFacingEastTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertEquals(new Position(0, 4), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveForwardWhileFacingSouthTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertEquals(new Position(4, 4), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveForwardWhileFacingWestTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertEquals(new Position(4, 0), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveForwardWhileFacingNorthTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertEquals(new Position(0, 0), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveBackwardWhileFacingEastTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnLeft();
         turtle.turnLeft();
         assertSame(WEST, turtle.getCurrentDirection());
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertEquals(new Position(0, 0), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveBackwardWhileFacingSouthTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnLeft();
         turtle.turnLeft();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertSame(NORTH, turtle.getCurrentDirection());
         assertEquals(new Position(0, 4), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveBackwardWhileFacingWestTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
         turtle.turnLeft();
         turtle.turnLeft();
         turtle.turnLeft();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertSame(EAST, turtle.getCurrentDirection());
         assertEquals(new Position(4, 4), turtle.getCurrentPosition());
     }
 
     @Test
     void turtleCanMoveBackwardWhileFacingNorthTest() {
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnRight();
         turtle.turnRight();
         turtle.turnRight();
         turtle.turnLeft();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         turtle.turnLeft();
-        turtle.move(5);
+        turtle.move(5, sketchPad);
         assertSame(EAST, turtle.getCurrentDirection());
         assertEquals(new Position(4, 4), turtle.getCurrentPosition());
     }
 
-//    @Test
-//    void turtleCanWriteTest(){
-//        turtle.write(0, 1, 1);
-//        assertEquals("#", turtle.printSketchPad());
-//    }
+    @Test
+    void whenPenIsDown_turtleWritesFacingEastTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                         \s
+                         \s
+                         \s
+                         \s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(0, 4), turtle.getCurrentPosition());
+    }
 }

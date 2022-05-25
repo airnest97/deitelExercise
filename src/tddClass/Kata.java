@@ -149,19 +149,30 @@ public class Kata {
 
     public int sumOfDistinctFigure(int[] array, int[] array2) {
         int sum = 0;
-        for (int k : array) {
-            for (int i : array2) {
-                if (k == i) {
-                    sum = sum + k;
+        sum = distinctSum(array2, array, sum);
+        sum = distinctSum(array, array2, sum);
+        return  sum;
+
+    }
+
+    private int distinctSum(int[] array, int[] array2, int sum) {
+        for (int k : array2) {
+            int counter = 0;
+            for (int i : array) {
+                if (k != i) {
+                    counter++;
                 }
+            }
+            if (counter == array.length) {
+                sum = sum + k;
             }
         }
         return sum;
     }
 
     public int sumOfOverlappingElement(int[] array, int[] array1) {
-        int sum = 0;
         int[] array2 = new int[10];
+        int sum = 0;
         for (int i = 0; i < array.length; i++) {
             for (int k : array1) {
                 if (array[i] == k) {
