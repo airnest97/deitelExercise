@@ -8,7 +8,7 @@ public class Queue {
     private int firstElementIn = -1;
 
     public Queue() {
-        elements = new int[3];
+        elements = new int[7];
     }
 
     public boolean isEmpty() {
@@ -44,7 +44,17 @@ public class Queue {
         return element;
     }
 
+
+
     public int size() {
         return sizeOfQueue;
+    }
+
+    public int peekFromBehind() {
+        int element = 0;
+        if (!isEmpty()){
+            element = elements[elements.length - 1];
+        }
+        return element;
     }
 }

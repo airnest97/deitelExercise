@@ -1,5 +1,7 @@
 package dsa.customArrayList;
 
+import java.util.Objects;
+
 public class CustomArrayList {
     private int counter;
     private int length;
@@ -87,7 +89,7 @@ public class CustomArrayList {
 
     public boolean contains(String element) {
         for (int i = 0; i < length; i++) {
-            if (element == array[i])
+            if (Objects.equals(element, array[i]))
                 return  true;
         }
         return false;
