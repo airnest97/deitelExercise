@@ -1,6 +1,8 @@
 package dsa.queue;
 
 
+import java.util.Arrays;
+
 public class Queue {
     private int sizeOfQueue;
     private final int[] elements;
@@ -56,5 +58,9 @@ public class Queue {
             element = elements[elements.length - 1];
         }
         return element;
+    }
+
+    public void display(){
+        System.out.println(Arrays.toString(elements));
     }
 }

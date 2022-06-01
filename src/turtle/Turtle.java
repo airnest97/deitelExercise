@@ -3,11 +3,9 @@ package turtle;
 import static turtle.Direction.*;
 
 public class Turtle {
-    private Pen pen = new Pen();
+    private final Pen pen = new Pen();
     private Direction currentDirection = EAST;
-    private Position currentPosition = new Position(0, 0);
-//    private Sketchpad sketchpad = new Sketchpad();
-
+    private final Position currentPosition = new Position(0, 0);
 
     public boolean isPenDown() {
         return pen.isDown();
@@ -17,7 +15,7 @@ public class Turtle {
         pen.penDown();
     }
 
-    public void penUp(){
+    public void penUp() {
         pen.penUp();
     }
 
@@ -46,17 +44,76 @@ public class Turtle {
     }
 
     public void move(int noOfSteps, SketchPad sketchPad) {
-        if (isPenDown()){
+        if (isPenDown()) {
             moveAndWrite(noOfSteps, sketchPad);
         }
         moveWithoutWriting(noOfSteps);
     }
 
     private void moveAndWrite(int noOfSteps, SketchPad sketchPad) {
-        if (currentDirection == EAST) writeOnColumn(noOfSteps, sketchPad);
-        else if (currentDirection == SOUTH) writeOnColumn(noOfSteps, sketchPad);
-        else if (currentDirection == WEST) writeOnColumn(noOfSteps, sketchPad);
-        else if (currentDirection == NORTH) writeOnColumn(noOfSteps, sketchPad);
+        switch (currentDirection) {
+            case EAST -> writeOnColumn(noOfSteps, sketchPad);
+            case SOUTH -> writeOnRow(noOfSteps, sketchPad);
+            case WEST -> writeBackwardOnColumn(noOfSteps, sketchPad);
+            case NORTH -> writeBackwardOnRow(noOfSteps, sketchPad);
+        }
+    }
+
+    private void writeBackwardOnRow(int noOfSteps, SketchPad sketchPad) {
+        int[][] floor = sketchPad.getFloor();
+        if ((currentPosition.getRow() + noOfSteps > floor.length)) {
+            int row = currentPosition.getRow();
+            int column = currentPosition.getColumn();
+            noOfSteps = noOfSteps - row;
+            for (int i = noOfSteps - 1; i < row; i++) {
+                floor[i][column] = 1;
+            }
+        }
+        else
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
+    }
+
+    private void writeBackwardOnColumn(int noOfSteps, SketchPad sketchPad) {
+        int[][] floor = sketchPad.getFloor();
+        if ((currentPosition.getColumn() + noOfSteps > floor.length)) {
+            int row = currentPosition.getRow();
+            int column = currentPosition.getColumn();
+            noOfSteps = noOfSteps - column;
+            for (int i = noOfSteps - 1; i < column; i++) {
+                floor[row][i] = 1;
+            }
+        }
+        else
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
+    }
+
+    private void writeOnRow(int noOfSteps, SketchPad sketchPad) {
+        int[][] floor = sketchPad.getFloor();
+        if (!(currentPosition.getRow() + noOfSteps > floor.length)) {
+            int row = currentPosition.getRow();
+            int column = currentPosition.getColumn();
+            noOfSteps = noOfSteps + row;
+            for (int i = row; i < noOfSteps; i++) {
+                floor[i][column] = 1;
+            }
+        }
+        else
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
+    }
+
+    private void writeOnColumn(int noOfSteps, SketchPad sketchPad) {
+        int[][] floor = sketchPad.getFloor();
+        if (!(currentPosition.getColumn() + noOfSteps > floor.length)) {
+            int row = currentPosition.getRow();
+            int column = currentPosition.getColumn();
+            noOfSteps = noOfSteps + column;
+            for (int i = column; i < noOfSteps; i++) {
+                floor[row][i] = 1;
+            }
+        }
+        else
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
+
     }
 
     private void moveWithoutWriting(int noOfSteps) {
@@ -66,19 +123,9 @@ public class Turtle {
         else if (currentDirection == NORTH) decreaseRowBy(noOfSteps);
     }
 
-    private void writeOnColumn(int noOfSteps, SketchPad sketchPad){
-        int [][] floor = sketchPad.getFloor();
-        int row = currentPosition.getRow();
-        int column = currentPosition.getColumn();
-        noOfSteps = noOfSteps + column;
-        for (int i = column; i < noOfSteps; i++) {
-            floor[row][i] = 1;
-        }
-    }
-
     private void increaseColumnBy(int noOfSteps) {
-        int currentColumnPosition = currentPosition.getColumn();
-        currentPosition.setColumn(currentColumnPosition + noOfSteps - 1);
+            int currentColumnPosition = currentPosition.getColumn();
+            currentPosition.setColumn(currentColumnPosition + noOfSteps - 1);
     }
 
     private void decreaseColumnBy(int noOfSteps) {
@@ -99,15 +146,4 @@ public class Turtle {
     public Position getCurrentPosition() {
         return currentPosition;
     }
-
-//    public void write(int row, int column, int noOfSteps) {
-//        new Position(row, column);
-//        move(noOfSteps);
-//        for (int i = 0; i < noOfSteps; i++) {
-//            sketchpad.getFloor() =
-//        }
-//    }
-
-//    public String printSketchPad() {
-//    }
 }

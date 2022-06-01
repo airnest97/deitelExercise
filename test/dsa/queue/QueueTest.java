@@ -111,9 +111,9 @@ public class QueueTest {
         queue.enqueue(34);
         queue.enqueue(67);
         queue.enqueue(44);
-        queue.enqueue(44);
-        queue.enqueue(44);
-        queue.enqueue(44);
+        queue.enqueue(4);
+        queue.enqueue(46);
+        queue.enqueue(47);
         queue.enqueue(55);
         int element = queue.dequeue();
 
@@ -128,5 +128,7 @@ public class QueueTest {
 
         int size = queue.size();
         assertEquals(5, size);
+
+        queue.display();
     }
 }

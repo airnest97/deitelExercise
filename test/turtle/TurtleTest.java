@@ -216,4 +216,144 @@ public class TurtleTest {
         assertEquals(expected, sketchPad.toString());
         assertEquals(new Position(0, 4), turtle.getCurrentPosition());
     }
+
+    @Test
+    void whenPenIsDown_turtleWritesFacingSouthTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                        *\s
+                        *\s
+                        *\s
+                        *\s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(4, 4), turtle.getCurrentPosition());
+    }
+
+    @Test
+    void whenPenIsDown_turtleWritesFacingWestTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                        *\s
+                        *\s
+                        *\s
+                * * * * *\s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(4, 0), turtle.getCurrentPosition());
+    }
+
+    @Test
+    void whenPenIsDown_turtleWritesFacingNorthTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                *       *\s
+                *       *\s
+                *       *\s
+                * * * * *\s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(0, 0), turtle.getCurrentPosition());
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededWhileMovingEastTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                         \s
+                         \s
+                         \s
+                         \s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(0, 4), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededWhileMovingSouthTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                        *\s
+                        *\s
+                        *\s
+                        *\s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(4, 4), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededWhileMovingWestTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                        *\s
+                        *\s
+                        *\s
+                * * * * *\s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(4, 0), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededWhileMovingNorthTest(){
+        turtle.penDown();
+        SketchPad sketchPad = new SketchPad(5, 5);
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        String expected = """
+                * * * * *\s
+                *       *\s
+                *       *\s
+                *       *\s
+                * * * * *\s
+                """;
+        assertEquals(expected, sketchPad.toString());
+        assertEquals(new Position(0, 0), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
 }
