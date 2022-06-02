@@ -124,23 +124,35 @@ public class Turtle {
     }
 
     private void increaseColumnBy(int noOfSteps) {
-            int currentColumnPosition = currentPosition.getColumn();
-            currentPosition.setColumn(currentColumnPosition + noOfSteps - 1);
+        int currentColumnPosition = currentPosition.getColumn();
+        currentPosition.setColumn(currentColumnPosition + noOfSteps - 1);
+
+        if ((currentColumnPosition + noOfSteps -1) > noOfSteps)
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
     }
 
     private void decreaseColumnBy(int noOfSteps) {
         int currentColumnPosition = currentPosition.getColumn();
         currentPosition.setColumn(currentColumnPosition - noOfSteps + 1);
+
+        if ((currentColumnPosition - noOfSteps + 1) < 0)
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
     }
 
     private void increaseRowBy(int noOfSteps) {
         int currentRowPosition = currentPosition.getRow();
         currentPosition.setRow(currentRowPosition + noOfSteps - 1);
+
+        if ((currentRowPosition + noOfSteps - 1) > noOfSteps)
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
     }
 
     private void decreaseRowBy(int noOfSteps) {
         int currentRowPosition = currentPosition.getRow();
         currentPosition.setRow(currentRowPosition - noOfSteps + 1);
+
+        if ((currentRowPosition - noOfSteps + 1) < 0)
+            throw new TurtleFloorOutOfBoundException("Turtle has fallen off the cliff");
     }
 
     public Position getCurrentPosition() {

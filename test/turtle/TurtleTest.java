@@ -356,4 +356,44 @@ public class TurtleTest {
         assertEquals(new Position(0, 0), turtle.getCurrentPosition());
         assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
     }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededFacingEasTest() {
+        turtle.move(5, sketchPad);
+        assertEquals(new Position(0, 4), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededFacingSouthTest() {
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        assertEquals(new Position(4, 4), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededFacingWestTest() {
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        assertEquals(new Position(4, 0), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
+
+    @Test
+    void turtleThrowsExceptionWhenFloorIsExceededFacingNorthTest() {
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        turtle.turnRight();
+        turtle.move(5, sketchPad);
+        assertEquals(new Position(0, 0), turtle.getCurrentPosition());
+        assertThrows(TurtleFloorOutOfBoundException.class, () -> turtle.move(5, sketchPad));
+    }
 }
