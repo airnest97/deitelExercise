@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RemovalTest {
 
-//    @Test
-//    void removal(){
-//        Remove r = new Remove();
-//        String a = r.remove("java-is_tea");
-//        assertEquals("javaIsTea", a);
-//    }
+    @Test
+    void removal(){
+        Remove remove = new Remove();
+        String expected = remove.replace("java-is_tea");
+        assertEquals("javaIsTea", expected);
+    }
 
 }

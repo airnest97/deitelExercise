@@ -41,15 +41,15 @@ public class ArraySet {
     }
 
     private static int distinctSum(int[] array, int[] array1, int sum) {
-        for (int i = 0; i < array1.length; i++) {
+        for (int k : array1) {
             int counter = 0;
-            for (int j = 0; j < array.length; j++) {
-                if (array1[i] != array[j]){
+            for (int i : array) {
+                if (k != i) {
                     counter++;
                 }
             }
-            if (counter == array.length){
-                sum = sum + array1[i];
+            if (counter == array.length) {
+                sum = sum + k;
             }
         }
         return sum;

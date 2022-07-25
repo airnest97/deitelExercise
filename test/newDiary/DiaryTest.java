@@ -145,7 +145,8 @@ public class DiaryTest {
         assertEquals(3, newDiary.getNumberOfEntries());
 
         newDiary.removeById(3, "1234");
-        assertEquals(2, newDiary.getNumberOfEntries());
+        newDiary.removeById(1, "1234");
+        assertEquals(1, newDiary.getNumberOfEntries());
     }
 
     @Test

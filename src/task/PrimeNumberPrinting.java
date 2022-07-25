@@ -6,7 +6,7 @@ public class PrimeNumberPrinting {
     public static void main(String[] args) {
         int i;
         int num;
-        String primeNumbers = " ";
+        StringBuilder primeNumbers = new StringBuilder(" ");
 
         Scanner input = new Scanner(System.in);
 
@@ -21,7 +21,7 @@ public class PrimeNumberPrinting {
                 }
             }
             if (counter == 2){
-                primeNumbers = primeNumbers + i + " ";
+                primeNumbers.append(i).append(" ");
             }
         }
         System.out.println("Prime Number from 1 to 100 is: ");

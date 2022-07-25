@@ -10,8 +10,6 @@ public class Palindrome {
         int fifthDigit = (num % 100) / 10;
         int sixthDigit = num % 10;
 
-        if (firstDigit == sixthDigit && secondDigit == fifthDigit && thirdDigit ==fourthDigit)
-            return true;
-            return false;
+        return firstDigit == sixthDigit && secondDigit == fifthDigit && thirdDigit == fourthDigit;
     }
 }

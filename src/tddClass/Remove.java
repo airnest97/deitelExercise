@@ -2,17 +2,17 @@ package tddClass;
 
 public class Remove {
 
-//    public String remove(String input) {
-//        String q = "";
-//        String e = "-_";
-//        for (int i = 0; i < input.length(); i++) {
-//            if (!input.contains(e)){
-//                q = input.concat(q);
-//            }
-//            else {
-//
-//            }
-//        }
-//    }
-
+    public String replace(String text) {
+        StringBuilder ret= new StringBuilder();
+        String captureGroup ="-_";
+        for (int i = 0; i < text.length(); i++) {
+            if (!captureGroup.contains(String.valueOf(text.charAt(i)))) {
+                ret.append(text.charAt(i));
+            }else{
+                ret.append(Character.toUpperCase(text.charAt(i+1)));
+                i++;
+            }
+        }
+        return ret.toString();
+    }
 }

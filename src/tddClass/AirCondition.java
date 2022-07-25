@@ -24,14 +24,12 @@ public class AirCondition {
             temperature = 16;
         if (initTemperature > 30)
             temperature = 30;
-
     }
 
     public void increaseTemperature() {if(temperature >= 16) if(temperature <= 30)
         temperature = temperature + 1;
         if(temperature > 30)
             temperature = 30;
-
     }
 
     public int getTemperature() {
